@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>How to Subscribe to an event</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>How to Subscribe to an event</h1>
+    <p>
+      This is a tutorial for how to subscribe to events on the event busses.
+    </p>
+    <h2>1. Which event bus</h2>
+    <p>
+      First you need to figure out which event bus you are subscribing to. The Mod event bus is used for mod setup and registry events. The Forge event bus is used for everything else.
+    </p>
+    <h2>2. Method of subscribing</h2>
+    <p>
+      There are 3 options. You can either use
+      <code>bus.regsiter(MyClass.class)</code> or <code>bus.register(myobject)</code> or <code>@Mod.EventBusSubscriber</code> on the event handler method's class.
+    </p>
+    <p>
+      <strong>
+        Note: If you are subscribing a class, with either
+        <code>bus.register(Class)</code> or <code>@Mod.EventBusSubscriber</code>, the event handler method should be static
+      </strong>
+    </p>
+    <h2>3. Add <code>@SubscribeEvent</code>?</h2>
+    <p>You should only use <code>@SubscribeEvent</code> when you are using the automatic event bus subscriber, <code>@Mod.EventBusSubscriber</code>.</p>
+    <a href="./">Back</a>
+  </body>
+</html>

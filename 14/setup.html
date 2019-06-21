@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Setting up a 1.14.2 Modding Workspace</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <h1>Setting up a Modding Workspace</h1>
+    <p>
+      This guide will assume you are using Intellij IDEA. The steps are similar for other IDEs.
+    </p>
+    <h2>1. Download the MDk</h2>
+    <p>
+      Download the latest Forge MDK.
+      <a href="http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.14.2.html" target="_blank">
+        Download Here
+      </a>
+    </p>
+    <h2>2. Extract into your folder</h2>
+    <p>Now extract the MDK, ensuring that the <code>build.gradle</code> file is in <code>ModFolder/build.gradle</code>.</p>
+    <h2>3. Import the gradle project into your IDE</h2>
+    <p>Now open Intellij IDEA, and import the <code>build.gradle</code> file.</p>
+    <h2>4. Edit files for your mod</h2>
+    <p>Now open <code>build.gradle</code> and replace the <code>version</code>, <code>group</code> and <code>archivesBaseName</code> to match your requirements. Then edit the <code>mods.toml</code> found in <code>resources/META-INF</code>.</p>
+    <h2>5. Generate run tasks</h2>
+    <p>Now, you should have a gradle tab on the right, in which you can find the task <code>genIntellijRuns</code>. Run this task.</p>
+    <h2>6. Create main mod class</h2>
+    <p>
+      Now create a class for you mod. This should be located in the group, and named the archivesBaseName you specified in your
+      <code>build.gradle</code>. See the examplemod for an example of how to setup this main mod class. Note: the most important thing is the <code>@Mod("modid")</code> being above your class.
+    </p>
+    <h2>7. Run the game</h2>
+    <p>
+      The run task you ran earlier should have added a run config called 'runClient'. Run this and you should see that your mod has loaded with the game.
+    </p>
+    <a href="./">Back</a>
+  </body>
+</html>

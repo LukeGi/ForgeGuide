@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Adding an Item</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>Adding an Item</h1>
+    <p>This guide assumes you have a modding workspace setup.</p>
+    <h2>1. Setup Registry Event</h2>
+    <p>You need to register your item to the game, but to do this you need to hook into the register items event. To do this you should subscribe to the event <code>net.minecraftforge.event.RegistryEvent.Register&lt;Item&gt;</code>.</p>
+    <p><a href="./subscribe_event.html">Learn more about subscribing to events</a></p>
+    <h2>2. Registering a basic item</h2>
+    <p>To register an item you need to get the registry from the event using <code>event.getRegistry()</code> and use the <code>.register</code> or <code>.registerAll</code> method. To add a basic item, instantiate the item class, and pass it a new `Item.Properties`. See and example below.</p>
+    <pre><code>event.getRegistry().register(new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName("mymodid:myitemname"));</code></pre>
+    <p>Note: <strong>DO NOT USE</strong> <code>setRegistryName</code> in the Item's constructor. This is a fast way to make your mod unexpandable, i.e. noone will be able to use your item class if they want to create an addon which expand on it's functionality.</p>
+    <h2>3. Using the new item</h2>
+    <p>If you need to reference this item somewhere in code it would be useful to have an instance of it available for you to work with right. This is where you should use <code>@ObjectHolder</code>. This annotation will inject a valid registry value into the field it is annotating. See how to use it in the example below.</p>
+    <pre><code>@ObjectHolder("mymodid:myitemname") public static final Item MY_ITEM_NAME = null;</code></pre>
+    <p>Note: Using <code>@ObjectHolder</code> is important for you to use if you want your mod to be friendly to work with.</p>
+    <h2>4. Add an item model and lang entry</h2>
+    <p>This item will need a model in <code>resources/assets/mymodid/models/item/myitemname.json</code>. Furthermore you will need a lang entry in your <code>en_us.json</code> in the format <code>"item.mymodid.myitemname"="Item Name"</code>.</p>
+    <a href="./">Back</a>
+  </body>
+</html>
